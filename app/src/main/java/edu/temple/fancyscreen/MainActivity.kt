@@ -14,7 +14,13 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val isTablet = resources.configuration.smallestScreenWidthDp >= 720
+
+        if (isTablet) {
+            setContentView(R.layout.activityalt)
+        } else {
+            setContentView(R.layout.activity_main)
+        }
 
         findViewById<ImageView>(R.id.profile_photo).setImageResource(R.drawable.istockphoto)
 
